@@ -1,0 +1,43 @@
+﻿@page "/register"
+@layout LoginLayout
+<MudText Typo="Typo.h4" GutterBottom="true">Sign Up</MudText>
+<MudText>Already have an account? <MudLink Href="/login">Sign In</MudLink></MudText>
+
+<MudForm Model="Item" @ref="form" Validation="validationItem.ValidateValue">
+                <MudTextField Label="Name"
+                          @bind-Value="Item.Name"
+                          For="@(() => Item.Name)"
+                          Variant="Variant.Outlined"
+                         Class="my-4"></MudTextField>
+            <MudTextField Label="User Name"
+                          @bind-Value="Item.Username"
+                          For="@(() => Item.Username)"
+                          Variant="Variant.Outlined"
+                          Class="my-4"></MudTextField>
+            <MudTextField Label="E-mail"
+                          @bind-Value="Item.Email"
+                          For="@(() => Item.Email)"
+                          Variant="Variant.Outlined"
+                          Class="my-4"></MudTextField>
+            <MudTextField Label="Password"
+                          @bind-Value="Item.Password"
+                          For="@(() => Item.Password)"
+                          InputType="InputType.Password"
+                          Variant="Variant.Outlined"
+                          Class="my-4"></MudTextField>
+            <MudTextField Label="Confirm Password"
+                          @bind-Value="Item.ConfirmPassword"
+                          For="@(() => Item.ConfirmPassword)"
+                          InputType="InputType.Password"
+                          Variant="Variant.Outlined"
+                          Class="my-4"></MudTextField>
+    <MudButton Variant="Variant.Filled"
+               Color="Color.Primary"
+               OnClick="RegisterAsync"
+               Size="Size.Large"
+               FullWidth="true">
+        Register
+    </MudButton>
+
+</MudForm>
+

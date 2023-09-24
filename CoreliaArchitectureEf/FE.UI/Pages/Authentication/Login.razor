@@ -1,0 +1,35 @@
+﻿@page "/login"
+@layout LoginLayout
+
+
+
+
+<MudText Typo="Typo.h4" GutterBottom="true">Sign In</MudText>
+
+<MudText>Don't have an account? <MudLink Href="/register">Sign Up</MudLink></MudText>
+
+<MudForm Model="Item" @ref="form" Validation="validationItem.ValidateValue">
+            <MudTextField Label="E-mail"
+                          @bind-Value="Item.Email"
+                          For="@(() => Item.Email)"
+                          Variant="Variant.Outlined"
+                          Class="my-4"></MudTextField>
+            <MudTextField Label="Password"
+                          @bind-Value="Item.Password"
+                          For="@(() => Item.Password)"
+                          InputType="InputType.Password"
+                          Variant="Variant.Outlined"
+                          Class="my-4"></MudTextField>
+    @if (loading)
+    {
+        <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" />
+    }
+    <MudButton Variant="Variant.Filled"
+               Color="Color.Primary"
+               OnClick="LoginAsync"
+               Size="Size.Large"
+               FullWidth="true">
+        Sign In
+    </MudButton>
+
+</MudForm>
